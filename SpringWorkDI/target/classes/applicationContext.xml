@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+		https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="morningGreet" class="com.sec01.MorningGreet"/>
+	
+	<bean id="eveningGreet" class="com.sec02.EveningGreet"/>
+	
+	<bean id="morningGreet3" class="com.sec03.MorningGreet"/>
+	<bean id="greetService"  class="com.sec03.GreetService">
+		<property name="greet" ref="morningGreet3"/>
+	</bean>
+	
+	<bean id="eveningGreet4" class="com.sec04.EveningGreet"/>
+	<bean id="greetService4" class="com.sec04.GreetService">
+		<constructor-arg ref="eveningGreet4"></constructor-arg>
+	</bean>
+	
+	<bean id="morningGreet5" class="com.sec05.MorningGreet"/>
+	<bean id="greetService5" class="com.sec05.GreetService">
+		<property name="greet" ref="morningGreet5"></property>
+	</bean>
+	<bean id="greetManager" class="com.sec05.GreetManager">
+		<property name="service" ref="greetService5"/>
+	</bean>
+	
+	<bean id="eveningGreet6" class="com.sec06.EveningGreet"/>
+	<bean id="greetService6" class="com.sec06.GreetService">
+		<property name="greet" ref="eveningGreet6"/>
+	</bean>
+	
+	<bean id="morningGreet7" class="com.sec07.MorningGreet"/>
+	
+</beans>
